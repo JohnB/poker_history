@@ -1,4 +1,4 @@
-Template.posts.created = function () {
+Template.historical_games.created = function () {
 
   // 1. Initialization
   
@@ -38,7 +38,7 @@ Template.posts.created = function () {
   
 };
 
-Template.posts.helpers({
+Template.historical_games.helpers({
   // the posts cursor
   posts: function () {
     return Template.instance().posts();
@@ -49,7 +49,7 @@ Template.posts.helpers({
   }
 });
 
-Template.posts.events({
+Template.historical_games.events({
   'click .load-more': function (event, instance) {
     event.preventDefault();
     

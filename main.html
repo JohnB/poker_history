@@ -1,25 +1,46 @@
 <head>
-  <title>Template-Level Subscriptions</title>
+  <title>Historical Games</title>
 </head>
 
 <body>
-  <div class="posts">
-    {{> posts}}
+  <div class="historical-games">
+    <p>Historical Games</p>
+    {{> historical_games}}
   </div>
 </body>
 
-<template name="posts">
-  {{#each posts}}
-    <div class="post">
-      <h3>{{title}}</h3>
-      <p>{{body}}</p>
-    </div>
+<template name="historical_games">
+  {{#each historical_games}}
+    {{> game}}
   {{/each}}
   {{#if Template.subscriptionsReady}}
-    {{#if hasMorePosts}}
+    {{#if hasMoreGames}}
       <a class="load-more" href="#">Load More</a>
     {{/if}}
   {{else}}
     <div class="loading">{{>spinner}}</div>
   {{/if}}
+</template>
+
+<template name="game">
+  <p>
+    {{when}} at {{where}}
+  </p>
+  {{> rankings}}
+</template>
+
+<template name="rankings">
+  {{#each players}}
+  <ul>
+    {{> player}}
+  </ul>
+  {{/each}}
+</template>
+
+
+<template name="player">
+  <strong>
+    {{name}}
+  </strong>
+  {{change_in_fortune}}
 </template>
