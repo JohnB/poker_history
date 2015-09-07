@@ -3,17 +3,18 @@
 </head>
 
 <body>
-  <div class="posts">
-    {{> posts}}
+  <h2>Chip Counter</h2>
+  {{> chip_counter}}
+
+  <div class="historical-games">
+    <p>Historical Games</p>
+    {{> historical_games}}
   </div>
 </body>
 
-<template name="posts">
-  {{#each posts}}
-    <div class="post">
-      <h3>{{title}}</h3>
-      <p>{{body}}</p>
-    </div>
+<template name="historical_games">
+  {{#each historical_games}}
+    {{> game}}
   {{/each}}
   {{#if Template.subscriptionsReady}}
     {{#if hasMorePosts}}

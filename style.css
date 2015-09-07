@@ -24,3 +24,7 @@ h3, p{
   display:block;
   padding: 10px;
 }
+
+.historical-games {
+  display: none;
+}
