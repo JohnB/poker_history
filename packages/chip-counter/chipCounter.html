@@ -1,0 +1,14 @@
+
+<template name="chip_counter">
+  <div class="num-chips" data-cents="{{num_chips_as_number_of_cents}}">
+    {{num_chips_as_formatted_text}}
+  </div>
+  <div class="counter">
+    <span class="change-amount dollars" data-cents="1000">$10</span>
+    <span class="change-amount dollars" data-cents="500">$5</span>
+    <span class="change-amount dollars" data-cents="100">$1</span>
+    <span class="change-amount" data-cents="50">50c</span>
+    <span class="change-amount" data-cents="25">25c</span>
+    <span class="change-amount negative" data-cents="-1000">-$10</span>
+  </div>
+</template>
