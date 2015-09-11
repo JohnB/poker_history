@@ -3,13 +3,16 @@
 </head>
 
 <body>
-  {{> chip_counter}}
+  {{> current_game}}
+
+  {{> poker_night}}
 
   <div class="historical-games">
     <p>Historical Games</p>
     {{> historical_games}}
   </div>
 </body>
+
 
 <template name="historical_games">
   {{#each historical_games}}
