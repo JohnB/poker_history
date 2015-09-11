@@ -12,10 +12,11 @@ Package.describe({
 
 Package.onUse(function(api) {
   api.versionsFrom('1.1.0.2');
-  api.use("templating", "client");
-  api.addFiles("chipCounter.html", "client");
-  api.addFiles("chip_counter_template.js", "client");
-  api.addFiles("chip-counter.css", "client");
+  api.use("templating",                     "client");
+  api.addFiles("chipCounter.html",          "client");
+  api.addFiles("chip_counter_template.js",  "client");
+  api.addFiles("chip-counter.css",          "client");
+  //api.export('ChipCounter',                 "client");
 });
 
 Package.onTest(function(api) {

@@ -42,3 +42,14 @@ Template.chip_counter.events({
     instance.num_chips.set(num_chips)
   }
 });
+
+//ChipCounter = {
+//  num_chips: new Template.chip_counterReactiveVar(0),
+//  num_chips_as_formatted_text: function() {
+//    var cents = num_chips % 100;
+//    var dollars = (num_chips - cents) / 100;
+//    cents = (cents < 10) ? ('0'+cents) : (''+cents);
+//
+//    return '$'+dollars+'.'+cents;
+//  },
+//};
