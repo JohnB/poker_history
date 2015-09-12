@@ -1,22 +1,27 @@
 
-.change-amount {
-    margin: 2px 6px;
-    padding: 4px;
-    color: #779;
-    background-color: #eee;
-    font-size: smaller;
-    border-radius: 3px;
-}
-
-.dollars {
-    font-size: larger;
-    color: #223344;
-    background-color: #ccc;
-}
-
 .num-chips {
     font-weight: bolder;
     font-size: x-large;
-    margin-left: 100px;
-    padding-bottom: 25px;
+    /*margin-left: 25%;*/
+    /*padding-bottom: 25px;*/
+    /*width: 50%;*/
+}
+
+.squeeze {
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+    font-size: larger !important;
+}
+
+.btn-success {
+    color: black !important;
+}
+
+.btn-info {
+    background-color: dodgerblue !important;
+    color: white !important;
+}
+
+.btn-danger {
+    color: yellow !important;
 }
