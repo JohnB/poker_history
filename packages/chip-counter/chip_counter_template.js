@@ -27,7 +27,7 @@ Template.chip_counter.helpers({
 });
 
 Template.chip_counter.events({
-  'click .change-amount': function (event, instance) {
+  'click .change-amount .btn': function (event, instance) {
     var amount = parseInt(event.currentTarget.dataset['cents']);
 
     event.preventDefault();

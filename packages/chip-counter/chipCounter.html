@@ -1,21 +1,29 @@
 
 <template name="chip_counter">
-  <ul class="nav nav-pills num-chips" data-cents="{{num_chips_as_number_of_cents}}" role="tablist">
-    <li class="active">
-      <a href="#">JohnB
-      <span class="badge">
-        {{num_chips_as_formatted_text}}
-      </span>
-      </a>
-    </li>
-  </ul>
+  <div class="well num-chips" data-cents="{{num_chips_as_number_of_cents}}">
+    JohnB: {{num_chips_as_formatted_text}}
+  </div>
 
-  <div class="counter">
-    <button type="button" class="btn btn-success change-amount dollars" data-cents="1000">$10</button>
-    <button type="button" class="btn btn-success change-amount dollars" data-cents="500">$5</button>
-    <button type="button" class="btn btn-success change-amount dollars" data-cents="100">$1</button>
-    <button type="button" class="btn btn-info change-amount" data-cents="50">50c</button>
-    <button type="button" class="btn btn-info change-amount" data-cents="25">25c</button>
-    <button type="button" class="btn btn-danger change-amount" data-cents="-1000">-$10</button>
+  <div class="container">
+    <div class="row change-amount">
+      <span class="col-md-2 squeeze">
+        <button type="button" class="btn btn-sm btn-success" data-cents="1000">$10</button>
+      </span>
+      <span class="col-md-2 squeeze">
+        <button type="button" class="btn btn-sm btn-success" data-cents="500">$5</button>
+      </span>
+      <span class="col-md-2 squeeze">
+        <button type="button" class="btn btn-sm btn-success" data-cents="100">$1</button>
+      </span>
+      <span class="col-md-2 squeeze">
+        <button type="button" class="btn btn-sm btn-info" data-cents="50">50c</button>
+      </span>
+      <span class="col-md-2 squeeze">
+        <button type="button" class="btn btn-sm btn-info" data-cents="25">25c</button>
+      </span>
+      <span class="col-md-2 squeeze">
+        <button type="button" class="btn btn-sm btn-danger" data-cents="-1000">-$10</button>
+      </span>
+    </div>
   </div>
 </template>

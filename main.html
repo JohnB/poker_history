@@ -1,9 +1,17 @@
 <head>
-  <title>Template-Level Subscriptions</title>
+  <title>Poker History</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 </head>
 
 <body>
-  {{> chip_counter}}
+  <ol class="breadcrumb mybreadcrumb">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Tonight</a></li>
+    <li class="active">JohnB</li>
+  </ol>
+  <div class="chip-counter">
+    {{> chip_counter}}
+  </div>
 
   <div class="historical-games">
     <p>Historical Games</p>
