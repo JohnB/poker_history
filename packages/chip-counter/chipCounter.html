@@ -1,14 +1,21 @@
 
 <template name="chip_counter">
-  <div class="num-chips" data-cents="{{num_chips_as_number_of_cents}}">
-    {{num_chips_as_formatted_text}}
-  </div>
+  <ul class="nav nav-pills num-chips" data-cents="{{num_chips_as_number_of_cents}}" role="tablist">
+    <li class="active">
+      <a href="#">JohnB
+      <span class="badge">
+        {{num_chips_as_formatted_text}}
+      </span>
+      </a>
+    </li>
+  </ul>
+
   <div class="counter">
-    <span class="change-amount dollars" data-cents="1000">$10</span>
-    <span class="change-amount dollars" data-cents="500">$5</span>
-    <span class="change-amount dollars" data-cents="100">$1</span>
-    <span class="change-amount" data-cents="50">50c</span>
-    <span class="change-amount" data-cents="25">25c</span>
-    <span class="change-amount negative" data-cents="-1000">-$10</span>
+    <button type="button" class="btn btn-success change-amount dollars" data-cents="1000">$10</button>
+    <button type="button" class="btn btn-success change-amount dollars" data-cents="500">$5</button>
+    <button type="button" class="btn btn-success change-amount dollars" data-cents="100">$1</button>
+    <button type="button" class="btn btn-info change-amount" data-cents="50">50c</button>
+    <button type="button" class="btn btn-info change-amount" data-cents="25">25c</button>
+    <button type="button" class="btn btn-danger change-amount" data-cents="-1000">-$10</button>
   </div>
 </template>

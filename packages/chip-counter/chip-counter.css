@@ -1,8 +1,4 @@
 
-.negative {
-    background-color: #red;
-}
-
 .change-amount {
     margin: 2px 6px;
     padding: 4px;
@@ -16,11 +12,6 @@
     font-size: larger;
     color: #223344;
     background-color: #ccc;
-}
-
-.negative {
-    color: #ffffff;
-    background-color: #cc7777;
 }
 
 .num-chips {
