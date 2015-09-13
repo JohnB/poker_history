@@ -4,3 +4,5 @@ anti:fake
 sacha:spin
 johnb:chip-counter
 twbs:bootstrap
+kadira:flow-router
+kadira:blaze-layout

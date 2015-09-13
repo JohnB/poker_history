@@ -3,21 +3,68 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 </head>
 
-<body>
+
+<template name="mainLayout">
+  <main>
+    {{>Template.dynamic template=content}}
+  </main>
+  <footer>We love Meteor</footer>
+</template>
+
+<template name="history">
+  history
+</template>
+
+<template name="next_game">
+  next_game
+</template>
+
+<template name="siteOptions">
+  siteOptions
+</template>
+
+<template name="tonight">
+  tonight
+</template>
+
+<template name="players">
+  players
+</template>
+
+<template name="poker_groups">
+  poker_groups
+</template>
+
+<template name="options">
+  options
+</template>
+
+<template name="root">
+  <ul>
+    <li><a href="/game/20150304">Game 2015/03/04</a></li>
+    <li><a href="/tonight">tonight</a></li>
+    <li><a href="/players">Players</a></li>
+    <li><a href="/options">Options</a></li>
+    <li><a href="/next_game">next_game</a></li>
+    <li><a href="/history">historical</a></li>
+    <li><a href="/poker_groups">poker_groups</a></li>
+  </ul>
+</template>
+
+<template name="showGame">
   <ol class="breadcrumb mybreadcrumb">
-    <li><a href="#"><span class="glyphicon glyphicon-home"></span>&nbsp;Home</a></li>
-    <li><a href="#">Tonight</a></li>
+    <li><a href="/"><span class="glyphicon glyphicon-home"></span>&nbsp;Home</a></li>
+    <li><a href="/game/20150304">Tonight</a></li>
     <li class="active">JohnB</li>
   </ol>
   <div class="chip-counter">
     {{> chip_counter}}
   </div>
-
-  <div class="historical-games">
-    <p>Historical Games</p>
-    {{> historical_games}}
-  </div>
-</body>
+  <p>This is the home page of our blog</p>
+  <p>
+    <a href="/hello-world">See Hello World Post</a>
+  </p>
+</template>
 
 <template name="historical_games">
   {{#each historical_games}}
