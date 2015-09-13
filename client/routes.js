@@ -48,12 +48,6 @@ FlowRouter.route('/poker_groups', {
     }
 });
 
-//<li><a href="/players">Players</a></li>
-//<li><a href="/options">Options</a></li>
-//<li><a href="/next_game">whenCanYaPlay</a></li>
-//<li><a href="/history">historical</a></li>
-//<li><a href="/poker_groups">poker_groups</a></li>
-
 FlowRouter.route('/game/:yyyymmdd', {
     name: 'showGame',
     action: function(params) {
@@ -61,3 +55,27 @@ FlowRouter.route('/game/:yyyymmdd', {
     }
 });
 
+Transitioner.setTransitions({
+    'root->tonight': 'right-to-left',
+    'tonight->root': 'left-to-right',
+
+    'root->players': 'right-to-left',
+    'players->root': 'left-to-right',
+
+    'root->options': 'right-to-left',
+    'options->root': 'left-to-right',
+
+    'root->next_game': 'right-to-left',
+    'next_game->root': 'left-to-right',
+
+    'root->history': 'right-to-left',
+    'history->root': 'left-to-right',
+
+    'root->poker_groups': 'right-to-left',
+    'poker_groups->root': 'left-to-right',
+
+    'root->showGame': 'right-to-left',
+    'showGame->root': 'left-to-right',
+
+    'default': 'fade'
+});

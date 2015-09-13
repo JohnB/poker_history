@@ -6,49 +6,104 @@
 
 <template name="mainLayout">
   <main>
-    {{>Template.dynamic template=content}}
+    {{#momentum plugin='flow-router'}}
+      {{>Template.dynamic template=content}}
+    {{/momentum}}
   </main>
-  <footer>Built by <a href="https://twitter.com/johnb">@JohnB</a></footer>
+</template>
+
+<template name="contentWrapper">
+  <div class="frt-fixed-content-wrapper">
+    {{> UI.contentBlock}}
+    <footer>Built by <a href="https://twitter.com/johnb">@JohnB</a></footer>
+  </div>
 </template>
 
 <template name="history">
-  history
+  {{#contentWrapper}}
+    <ol class="breadcrumb mybreadcrumb">
+      <li><a href="/"><span class="glyphicon glyphicon-home"></span>&nbsp;Home</a></li>
+      <li class="active">History</li>
+    </ol>
+    history
+  {{/contentWrapper}}
 </template>
 
 <template name="next_game">
-  next_game
+  {{#contentWrapper}}
+    <ol class="breadcrumb mybreadcrumb">
+      <li><a href="/"><span class="glyphicon glyphicon-home"></span>&nbsp;Home</a></li>
+      <li class="active">Next Game</li>
+    </ol>
+    next_game
+  {{/contentWrapper}}
 </template>
 
 <template name="siteOptions">
-  siteOptions
+  {{#contentWrapper}}
+  <ol class="breadcrumb mybreadcrumb">
+    <li><a href="/"><span class="glyphicon glyphicon-home"></span>&nbsp;Home</a></li>
+    <li class="active">Site Options</li>
+  </ol>
+    siteOptions
+  {{/contentWrapper}}
 </template>
 
 <template name="tonight">
-  tonight
+  {{#contentWrapper}}
+  <ol class="breadcrumb mybreadcrumb">
+    <li><a href="/"><span class="glyphicon glyphicon-home"></span>&nbsp;Home</a></li>
+    <li class="active">Tonight</li>
+  </ol>
+    tonight
+  {{/contentWrapper}}
 </template>
 
 <template name="players">
-  players
+  {{#contentWrapper}}
+    <ol class="breadcrumb mybreadcrumb">
+      <li><a href="/"><span class="glyphicon glyphicon-home"></span>&nbsp;Home</a></li>
+      <li class="active">Players</li>
+    </ol>
+    players
+  {{/contentWrapper}}
 </template>
 
 <template name="poker_groups">
-  poker_groups
+  {{#contentWrapper}}
+    <ol class="breadcrumb mybreadcrumb">
+      <li><a href="/"><span class="glyphicon glyphicon-home"></span>&nbsp;Home</a></li>
+      <li class="active">Poker Groups</li>
+    </ol>
+    poker_groups
+  {{/contentWrapper}}
 </template>
 
 <template name="options">
-  options
+  {{#contentWrapper}}
+    <ol class="breadcrumb mybreadcrumb">
+      <li><a href="/"><span class="glyphicon glyphicon-home"></span>&nbsp;Home</a></li>
+      <li class="active">Options</li>
+    </ol>
+    options
+  {{/contentWrapper}}
 </template>
 
 <template name="root">
-  <ul>
-    <li><a href="/game/20150304">Game 2015/03/04</a></li>
-    <li><a href="/tonight">tonight</a></li>
-    <li><a href="/players">Players</a></li>
-    <li><a href="/options">Options</a></li>
-    <li><a href="/next_game">next_game</a></li>
-    <li><a href="/history">historical</a></li>
-    <li><a href="/poker_groups">poker_groups</a></li>
-  </ul>
+  {{#contentWrapper}}
+    <ol class="breadcrumb mybreadcrumb">
+      <li class="active"><span class="glyphicon glyphicon-home"></span>&nbsp;Home</li>
+    </ol>
+    <ul>
+      <li><a href="/game/20150304">Game 2015/03/04</a></li>
+      <li><a href="/tonight">tonight</a></li>
+      <li><a href="/players">Players</a></li>
+      <li><a href="/options">Options</a></li>
+      <li><a href="/next_game">next_game</a></li>
+      <li><a href="/history">historical</a></li>
+      <li><a href="/poker_groups">poker_groups</a></li>
+    </ul>
+  {{/contentWrapper}}
 </template>
 
 <template name="showGame">
