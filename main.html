@@ -25,7 +25,23 @@
       <li><a href="/"><span class="glyphicon glyphicon-home"></span>&nbsp;Home</a></li>
       <li class="active">History</li>
     </ol>
-    history
+    <p>Import the historical list of players - except X1 and X2</p>
+    <p>futz with historical games to best-guess at X1 or X2</p>
+    <p>Import historical games</p>
+    <p>Implement the loop below</p>
+    <p><input type="checkbox"> Only games you've played in</p>
+
+
+    {{#each historical_games}}
+      {{> game}}
+    {{/each}}
+    {{#if Template.subscriptionsReady}}
+      {{#if hasMorePosts}}
+        <a class="load-more" href="#">Load More</a>
+      {{/if}}
+    {{else}}
+      <div class="loading">{{>spinner}}</div>
+    {{/if}}
   {{/contentWrapper}}
 </template>
 
@@ -35,7 +51,20 @@
       <li><a href="/"><span class="glyphicon glyphicon-home"></span>&nbsp;Home</a></li>
       <li class="active">Next Game</li>
     </ol>
-    next_game
+
+    <ul>
+      <li>
+        Date: some date picker
+      </li>
+      <li>
+        Host: UNKNOWN
+      </li>
+      <li>
+        Notes: <textarea>asdfsfd</textarea>
+      </li>
+    </ul>
+    <button type="button" class="btn btn-danger">Send Invites</button>
+
   {{/contentWrapper}}
 </template>
 
@@ -53,20 +82,45 @@
   {{#contentWrapper}}
   <ol class="breadcrumb mybreadcrumb">
     <li><a href="/"><span class="glyphicon glyphicon-home"></span>&nbsp;Home</a></li>
-    <li class="active">Tonight</li>
+    <li class="active">Upcoming</li>
   </ol>
-    tonight
+    <p>
+      Friday, October 4th, 2015
+      {{> yeses}}
+      {{> maybes}}
+      {{> noes}}
+    </p>
+  Players that have responded:
+  {{> player}}
   {{/contentWrapper}}
+</template>
+
+<template name="yeses">
+  <span class="yes_players">Yes: {{num_yes_players}}</span>
+</template>
+
+<template name="maybes">
+  <span class="maybes_players">Maybe: {{num_maybe_players}}</span>
+</template>
+
+<template name="noes">
+  <span class="noes_players">No: {{num_no_players}}</span>
 </template>
 
 <template name="players">
   {{#contentWrapper}}
-    <ol class="breadcrumb mybreadcrumb">
-      <li><a href="/"><span class="glyphicon glyphicon-home"></span>&nbsp;Home</a></li>
-      <li class="active">Players</li>
-    </ol>
-    players
+  <ol class="breadcrumb mybreadcrumb">
+    <li><a href="/"><span class="glyphicon glyphicon-home"></span>&nbsp;Home</a></li>
+    <li class="active">Players</li>
+  </ol>
+  {{> player}}
   {{/contentWrapper}}
+</template>
+
+<template name="player">
+  <button type="button"
+          class="btn btn-info"
+          data-cents="{{player_id}}">{{player_name}}</button>
 </template>
 
 <template name="poker_groups">
@@ -95,13 +149,12 @@
       <li class="active"><span class="glyphicon glyphicon-home"></span>&nbsp;Home</li>
     </ol>
     <ul>
-      <li><a href="/game/20150304">Game 2015/03/04</a></li>
-      <li><a href="/tonight">tonight</a></li>
-      <li><a href="/players">Players</a></li>
+      <li><a href="/tonight">Upcoming</a></li>
+      <li><a href="/next_game">Suggest A Date</a></li>
+      <li><a href="/players">Roster</a></li>
       <li><a href="/options">Options</a></li>
-      <li><a href="/next_game">next_game</a></li>
-      <li><a href="/history">historical</a></li>
-      <li><a href="/poker_groups">poker_groups</a></li>
+      <li><a href="/history">History</a></li>
+      <!--<li><a href="/poker_groups">poker_groups - clone and add more?</a></li>-->
     </ul>
   {{/contentWrapper}}
 </template>
@@ -122,14 +175,4 @@
 </template>
 
 <template name="historical_games">
-  {{#each historical_games}}
-    {{> game}}
-  {{/each}}
-  {{#if Template.subscriptionsReady}}
-    {{#if hasMorePosts}}
-      <a class="load-more" href="#">Load More</a>
-    {{/if}}
-  {{else}}
-    <div class="loading">{{>spinner}}</div>
-  {{/if}}
 </template>
