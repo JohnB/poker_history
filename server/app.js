@@ -1,17 +1,13 @@
 // generate dummy content
 Meteor.startup(function () {
-  if (Posts.find().count() === 0) {
-    for (i = 0; i <= 50; i++) {
-      Posts.insert({
-        title: Fake.sentence(6),
-        body: Fake.paragraph(3)
-      });
-    }
+  if (Players.find().count() === 0) {
+    Players.insert({name: 'Example1', emails: 'example1@somewhere.com'});
+    Players.insert({name: 'Example2', emails: 'example2@somewhere.com'});
+    Players.insert({name: 'Example3', emails: 'example3@somewhere.com'});
   }
 });
 
-// publish posts
-Meteor.publish('posts', function(limit) {
-  //Meteor._sleepForMs(2000);
-  return Posts.find({}, {limit: limit});
+// publish players
+Meteor.publish('players', function(limit) {
+  return Players.find({});
 });

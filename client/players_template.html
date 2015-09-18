@@ -1,0 +1,19 @@
+<template name="players">
+    {{#contentWrapper}}
+        <ol class="breadcrumb mybreadcrumb">
+            <li><a href="/"><span class="glyphicon glyphicon-home"></span>&nbsp;Home</a></li>
+            <li class="active">Players</li>
+            <li class="active">huh?</li>
+        </ol>
+        {{#each players}}
+          {{> player}}
+        {{/each}}
+    {{/contentWrapper}}
+</template>
+
+<template name="player">
+    <button type="button"
+            class="btn btn-info"
+            data-cents="{{player_id}}">{{name}}</button>
+</template>
+

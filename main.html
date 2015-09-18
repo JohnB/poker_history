@@ -107,22 +107,6 @@
   <span class="noes_players">No: {{num_no_players}}</span>
 </template>
 
-<template name="players">
-  {{#contentWrapper}}
-  <ol class="breadcrumb mybreadcrumb">
-    <li><a href="/"><span class="glyphicon glyphicon-home"></span>&nbsp;Home</a></li>
-    <li class="active">Players</li>
-  </ol>
-  {{> player}}
-  {{/contentWrapper}}
-</template>
-
-<template name="player">
-  <button type="button"
-          class="btn btn-info"
-          data-cents="{{player_id}}">{{player_name}}</button>
-</template>
-
 <template name="poker_groups">
   {{#contentWrapper}}
     <ol class="breadcrumb mybreadcrumb">
