@@ -1,12 +1,9 @@
 Template.players.created = function () {
-    console.log('Template.players.created = function () {...')
-  // 1. Initialization
-
   var instance = this;
 
   // initialize the reactive variables
   instance.loaded = new ReactiveVar(0);
-  instance.limit = new ReactiveVar(555);
+  instance.limit = new ReactiveVar(55);
 
   // 2. Autorun
 
@@ -16,17 +13,23 @@ Template.players.created = function () {
     // get the limit
     var limit = instance.limit.get();
 
-    console.log("Asking for "+limit+" players…")
-
     // subscribe to the players publication
     var subscription = instance.subscribe('players', limit);
+    var poker_group_subscription = instance.subscribe('poker_groups', 'Example Group');
 
     // if subscription is ready, set limit to newLimit
     if (subscription.ready()) {
-      console.log("> Received "+limit+" players. \n\n")
+      var actual = Players.find({}).count();
+      console.log("Received "+actual+" of "+limit+" players.")
       instance.loaded.set(limit);
     } else {
-      console.log("> Subscription is not ready yet. \n\n");
+      //console.log("Subscription is not ready yet.");
+    }
+
+    if (poker_group_subscription.ready()) {
+      console.log("Received poker_group_subscription.")
+    } else {
+      //console.log("poker_group_subscription is not ready yet.");
     }
   });
 
@@ -41,17 +44,12 @@ Template.players.created = function () {
 Template.players.helpers({
   // the players cursor
   players: function () {
-      console.log('player_count: '+Template.instance().players().count()+' - yup!')
     return Template.instance().players();
-  },
-  // are there more players to show?
-  hasMorePlayers: function () {
-    return Template.instance().players().count() >= Template.instance().limit.get();
   }
 });
 
 Template.players.events({
-  'click .load-more': function (event, instance) {
+  'click .add-player': function (event, instance) {
     event.preventDefault();
 
     // get current value for limit, i.e. how many players are currently displayed
