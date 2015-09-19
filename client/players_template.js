@@ -27,7 +27,7 @@ Template.players.created = function () {
     }
 
     if (poker_group_subscription.ready()) {
-      console.log("Received poker_group_subscription.")
+      //console.log("Received poker_group_subscription.")
     } else {
       //console.log("poker_group_subscription is not ready yet.");
     }

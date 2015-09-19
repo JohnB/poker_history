@@ -5,15 +5,17 @@
             <li class="active">Players</li>
             <li class="active">huh?</li>
         </ol>
-        {{#each players}}
-          {{> player}}
-        {{/each}}
+        <div class="player_list">
+            {{#each players}}
+                {{> player}}
+            {{/each}}
+        </div>
     {{/contentWrapper}}
 </template>
 
 <template name="player">
     <button type="button"
-            class="btn btn-info"
+            class="btn btn-info player-item"
             data-cents="{{player_id}}">{{name}}</button>
 </template>
 

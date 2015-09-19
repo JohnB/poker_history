@@ -11,9 +11,9 @@ Meteor.startup(function () {
     console.log('group? '+group);
     group_id = group['_id'];
     console.log(group_id);
-    Players.insert({name: 'Example1', emails: 'john.baylor+example1@gmail.com', group_id: group_id});
-    Players.insert({name: 'Example2', emails: 'john.baylor+example2@gmail.com', group_id: group_id});
-    Players.insert({name: 'Example3', emails: 'john.baylor+example3@gmail.com', group_id: group_id});
+    for (player_num = 0; player_num <= 20; player_num++) {
+      Players.insert({name: 'Example'+player_num, emails: 'john.baylor+example'+player_num+'@gmail.com', group_id: group_id});
+    }
   }
 });
 
