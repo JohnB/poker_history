@@ -1,0 +1,16 @@
+<template name="tonight">
+  {{#contentWrapper}}
+  <ol class="breadcrumb mybreadcrumb">
+    <li><a href="/"><span class="glyphicon glyphicon-home"></span>&nbsp;Home</a></li>
+    <li class="active">Upcoming</li>
+  </ol>
+  <p>
+    Friday, October 4th, 2015
+    {{> yeses}}
+    {{> maybes}}
+    {{> noes}}
+  </p>
+  Players that have responded:
+  {{> player}}
+  {{/contentWrapper}}
+</template>

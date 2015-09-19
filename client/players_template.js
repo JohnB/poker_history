@@ -49,15 +49,15 @@ Template.players.helpers({
 });
 
 Template.players.events({
-  'click .add-player': function (event, instance) {
-    event.preventDefault();
-
-    // get current value for limit, i.e. how many players are currently displayed
-    var limit = instance.limit.get();
-
-    // increase limit by 5 and update it
-    //limit += 5;
-    instance.limit.set(limit)
-  }
+  //'click .add-player': function (event, instance) {
+  //  event.preventDefault();
+  //
+  //  // get current value for limit, i.e. how many players are currently displayed
+  //  var limit = instance.limit.get();
+  //
+  //  // increase limit by 5 and update it
+  //  //limit += 5;
+  //  instance.limit.set(limit)
+  //}
 });
 

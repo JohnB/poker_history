@@ -1,0 +1,20 @@
+<template name="add_player">
+    {{#contentWrapper}}
+        <ol class="breadcrumb mybreadcrumb">
+            <li><a href="/"><span class="glyphicon glyphicon-home"></span>&nbsp;Home</a></li>
+            <li><a href="/players">Players</a></li>
+            <li class="active">Add Player</li>
+        </ol>
+
+        <ul>
+            <li>
+                Name: <input size="50" id="new_player_name" value="{{new_player_name}}">
+            </li>
+            <li>
+                Email: <input size="50" id="new_player_email" value="{{new_player_email}}">
+            </li>
+        </ul>
+        <button type="button" class="add-this-player btn btn-danger">Add</button>
+
+    {{/contentWrapper}}
+</template>

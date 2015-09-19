@@ -1,0 +1,27 @@
+
+<template name="history">
+  {{#contentWrapper}}
+    <ol class="breadcrumb mybreadcrumb">
+      <li><a href="/"><span class="glyphicon glyphicon-home"></span>&nbsp;Home</a></li>
+      <li class="active">History</li>
+    </ol>
+    <p>Import the historical list of players - except X1 and X2</p>
+    <p>futz with historical games to best-guess at X1 or X2</p>
+    <p>Import historical games</p>
+    <p>Implement the loop below</p>
+    <p><input type="checkbox"> Only games you've played in</p>
+
+
+    {{#each historical_games}}
+      {{> game}}
+    {{/each}}
+    {{#if Template.subscriptionsReady}}
+      {{#if hasMorePosts}}
+        <a class="load-more" href="#">Load More</a>
+      {{/if}}
+    {{else}}
+      <div class="loading">{{>spinner}}</div>
+    {{/if}}
+  {{/contentWrapper}}
+</template>
+

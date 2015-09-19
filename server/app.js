@@ -24,3 +24,19 @@ Meteor.publish('players', function(limit) {
 Meteor.publish('poker_groups', function(name) {
   return PokerGroups.find({name: name});
 });
+
+NonEmptyString = Match.Where(function (x) {  // http://docs.meteor.com/#/full/matchpatterns
+  check(x, String);
+  return x.length > 0;
+});
+
+Meteor.methods({
+  add_player: function (obj) {
+    check(obj.name, NonEmptyString);
+    check(obj.emails, NonEmptyString);
+    var new_user = {name: obj.name, emails: obj.emails};  // TODO: somehow set the poker_group ID
+
+    var player = Players.insert(new_user);
+    return player;
+  }
+});

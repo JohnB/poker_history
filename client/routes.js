@@ -20,6 +20,13 @@ FlowRouter.route('/players', {
     }
 });
 
+FlowRouter.route('/add_player', {
+    name: 'add_player',
+    action: function(params) {
+        BlazeLayout.render("mainLayout", {content: "add_player"});
+    }
+});
+
 FlowRouter.route('/options', {
     name: 'options',
     action: function(params) {
@@ -49,9 +56,9 @@ FlowRouter.route('/poker_groups', {
 });
 
 FlowRouter.route('/game/:yyyymmdd', {
-    name: 'showGame',
+    name: 'show_game',
     action: function(params) {
-        BlazeLayout.render("mainLayout", {content: "showGame"});
+        BlazeLayout.render("mainLayout", {content: "show_game"});
     }
 });
 
@@ -74,8 +81,11 @@ Transitioner.setTransitions({
     'root->poker_groups': 'right-to-left',
     'poker_groups->root': 'left-to-right',
 
-    'root->showGame': 'right-to-left',
-    'showGame->root': 'left-to-right',
+    'root->show_game': 'right-to-left',
+    'show_game->root': 'left-to-right',
+
+    'players->add_player': 'right-to-left',
+    'add_player->players': 'left-to-right',
 
     'default': 'fade'
 });

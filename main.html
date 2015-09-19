@@ -19,82 +19,6 @@
   </div>
 </template>
 
-<template name="history">
-  {{#contentWrapper}}
-    <ol class="breadcrumb mybreadcrumb">
-      <li><a href="/"><span class="glyphicon glyphicon-home"></span>&nbsp;Home</a></li>
-      <li class="active">History</li>
-    </ol>
-    <p>Import the historical list of players - except X1 and X2</p>
-    <p>futz with historical games to best-guess at X1 or X2</p>
-    <p>Import historical games</p>
-    <p>Implement the loop below</p>
-    <p><input type="checkbox"> Only games you've played in</p>
-
-
-    {{#each historical_games}}
-      {{> game}}
-    {{/each}}
-    {{#if Template.subscriptionsReady}}
-      {{#if hasMorePosts}}
-        <a class="load-more" href="#">Load More</a>
-      {{/if}}
-    {{else}}
-      <div class="loading">{{>spinner}}</div>
-    {{/if}}
-  {{/contentWrapper}}
-</template>
-
-<template name="next_game">
-  {{#contentWrapper}}
-    <ol class="breadcrumb mybreadcrumb">
-      <li><a href="/"><span class="glyphicon glyphicon-home"></span>&nbsp;Home</a></li>
-      <li class="active">Next Game</li>
-    </ol>
-
-    <ul>
-      <li>
-        Date: some date picker
-      </li>
-      <li>
-        Host: UNKNOWN
-      </li>
-      <li>
-        Notes: <textarea>asdfsfd</textarea>
-      </li>
-    </ul>
-    <button type="button" class="btn btn-danger">Send Invites</button>
-
-  {{/contentWrapper}}
-</template>
-
-<template name="siteOptions">
-  {{#contentWrapper}}
-  <ol class="breadcrumb mybreadcrumb">
-    <li><a href="/"><span class="glyphicon glyphicon-home"></span>&nbsp;Home</a></li>
-    <li class="active">Site Options</li>
-  </ol>
-    siteOptions
-  {{/contentWrapper}}
-</template>
-
-<template name="tonight">
-  {{#contentWrapper}}
-  <ol class="breadcrumb mybreadcrumb">
-    <li><a href="/"><span class="glyphicon glyphicon-home"></span>&nbsp;Home</a></li>
-    <li class="active">Upcoming</li>
-  </ol>
-    <p>
-      Friday, October 4th, 2015
-      {{> yeses}}
-      {{> maybes}}
-      {{> noes}}
-    </p>
-  Players that have responded:
-  {{> player}}
-  {{/contentWrapper}}
-</template>
-
 <template name="yeses">
   <span class="yes_players">Yes: {{num_yes_players}}</span>
 </template>
@@ -117,16 +41,6 @@
   {{/contentWrapper}}
 </template>
 
-<template name="options">
-  {{#contentWrapper}}
-    <ol class="breadcrumb mybreadcrumb">
-      <li><a href="/"><span class="glyphicon glyphicon-home"></span>&nbsp;Home</a></li>
-      <li class="active">Options</li>
-    </ol>
-    options
-  {{/contentWrapper}}
-</template>
-
 <template name="root">
   {{#contentWrapper}}
     <ol class="breadcrumb mybreadcrumb">
@@ -141,21 +55,6 @@
       <!--<li><a href="/poker_groups">poker_groups - clone and add more?</a></li>-->
     </ul>
   {{/contentWrapper}}
-</template>
-
-<template name="showGame">
-  <ol class="breadcrumb mybreadcrumb">
-    <li><a href="/"><span class="glyphicon glyphicon-home"></span>&nbsp;Home</a></li>
-    <li><a href="/game/20150304">Tonight</a></li>
-    <li class="active">JohnB</li>
-  </ol>
-  <div class="chip-counter">
-    {{> chip_counter}}
-  </div>
-  <p>This is the home page of our blog</p>
-  <p>
-    <a href="/hello-world">See Hello World Post</a>
-  </p>
 </template>
 
 <template name="historical_games">

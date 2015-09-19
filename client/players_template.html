@@ -3,18 +3,21 @@
         <ol class="breadcrumb mybreadcrumb">
             <li><a href="/"><span class="glyphicon glyphicon-home"></span>&nbsp;Home</a></li>
             <li class="active">Players</li>
-            <li class="active">huh?</li>
         </ol>
         <div class="player_list">
             {{#each players}}
                 {{> player}}
             {{/each}}
+            <a href="add_player">
+                <button class="add-player btn btn-success player-item">Add Player</button>
+            </a>
         </div>
     {{/contentWrapper}}
 </template>
 
 <template name="player">
-    <button type="button"
+    <button title="{{emails}}"
+            type="button"
             class="btn btn-info player-item"
             data-cents="{{player_id}}">{{name}}</button>
 </template>
