@@ -48,6 +48,13 @@ FlowRouter.route('/history', {
     }
 });
 
+FlowRouter.route('/author', {
+    name: 'author',
+    action: function(params) {
+        BlazeLayout.render("mainLayout", {content: "author"});
+    }
+});
+
 FlowRouter.route('/poker_groups', {
     name: 'poker_groups',
     action: function(params) {
@@ -68,6 +75,8 @@ Transitioner.setTransitions({
 
     'root->players': 'right-to-left',
     'players->root': 'left-to-right',
+        'players->add_player': 'right-to-left',
+        'add_player->players': 'left-to-right',
 
     'root->options': 'right-to-left',
     'options->root': 'left-to-right',
@@ -84,8 +93,8 @@ Transitioner.setTransitions({
     'root->show_game': 'right-to-left',
     'show_game->root': 'left-to-right',
 
-    'players->add_player': 'right-to-left',
-    'add_player->players': 'left-to-right',
+    'root->author': 'right-to-left',
+    'author->root': 'left-to-right',
 
     'default': 'fade'
 });
