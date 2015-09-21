@@ -38,5 +38,9 @@ Meteor.methods({
 
     var player = Players.insert(new_user);
     return player;
+  },
+  add_game: function (obj) {
+    console.log('add_game');
+    console.log(obj);
   }
 });

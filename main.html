@@ -46,13 +46,14 @@
       <li class="active"><span class="glyphicon glyphicon-home"></span>&nbsp;Home</li>
     </ol>
     <ul>
-      <li><a href="/tonight">Upcoming</a></li>
-      <li><a href="/next_game">Suggest A Date</a></li>
-      <li><a href="/players">Roster</a></li>
-      <li><a href="/options">Options</a></li>
-      <li><a href="/history">History</a></li>
-      <li><a href="/author">Author</a></li>
-      <!--<li><a href="/poker_groups">poker_groups - clone and add more?</a></li>-->
+      {{> current_game}}
+      <p><a href="/tonight">Upcoming</a></p>
+      <p><a href="/next_game">Suggest A Date</a></p>
+      <p><a href="/players">Roster</a></p>
+      <p><a href="/options">Options</a></p>
+      <p><a href="/history">History</a></p>
+      <p><a href="/author">Author</a></p>
+      <!--<p><a href="/poker_groups">poker_groups - clone and add more?</a></p>-->
     </ul>
   {{/contentWrapper}}
 </template>
