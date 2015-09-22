@@ -1,8 +1,9 @@
 // generate dummy content
 Meteor.startup(function () {
   console.log('startup');
+
   if (PokerGroups.find({name: 'Example Group'}).count() == 0) {
-    PokerGroups.insert({name: 'Example Group'});
+    var pokerGroup = PokerGroups.insert({name: 'Example Group'});
   }
   if (PokerGroups.find({name: 'Example Group'}).count() == 1 && Players.find({}).count() == 0) {
     var group = PokerGroups.find({name: 'Example Group'}).fetch()[0];
@@ -39,8 +40,25 @@ Meteor.methods({
     var player = Players.insert(new_user);
     return player;
   },
+
   add_game: function (obj) {
     console.log('add_game');
     console.log(obj);
+    check(obj.yyyymmdd, NonEmptyString);
+    check(obj.pokerGroupName, NonEmptyString);
+    var yyyymmdd = parseInt(obj.yyyymmdd);
+
+    var game_hash = {yyyymmdd: yyyymmdd, poker_group_name: obj.pokerGroupName};
+    var game = Games.findOne(game_hash);
+
+    // This code essentially creates a singleton for each date requested for a group.
+    // Often called  findOrCreate(...)
+    if (game) {
+      console.log('A game dated '+yyyymmdd+' already exists - returning it.');
+    } else {
+      console.log('Creating game for '+yyyymmdd+' and '+obj.pokerGroupName+'.');
+      game = Games.insert(game_hash);
+    }
+    return game;
   }
 });

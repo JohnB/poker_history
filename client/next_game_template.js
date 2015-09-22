@@ -21,14 +21,20 @@ Template.next_game.events({
     'click .send-invites': function (event, instance) {
         event.preventDefault();
 
-        var date = $('#yyyymmdd').val();
+        var yyyymmdd = $('#yyyymmdd').val();
+        Session.setDefault('currentPokerGroupName', 'Example Group');
+        var currentPokerGroupName = Session.get('currentPokerGroupName');
+        console.log('currentPokerGroupName: '+currentPokerGroupName+'.');
+
         Meteor.call(
             'add_game',
-            {date: date},
+            {yyyymmdd: yyyymmdd, pokerGroupName: currentPokerGroupName},
             function (error, result) {
-                console.log(error);
+                console.log('Error should be undefined: '+error);
                 console.log(result);
-        });
+
+                FlowRouter.go('/game/'+yyyymmdd);
+            });
     }
 });
 

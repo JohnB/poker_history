@@ -6,6 +6,16 @@ FlowRouter.route('/', {
     }
 });
 
+FlowRouter.route('/game/:yyyymmdd', {
+    name: 'game',
+    action: function(params, queryParams) {
+        console.log("Params:", params);
+        console.log("Query Params:", queryParams);
+
+        BlazeLayout.render("mainLayout", {content: "tonight"});
+    }
+});
+
 FlowRouter.route('/tonight', {
     name: 'tonight',
     action: function(params) {
