@@ -59,6 +59,32 @@ Meteor.methods({
       console.log('Creating game for '+yyyymmdd+' and '+obj.pokerGroupName+'.');
       game = Games.insert(game_hash);
     }
+
+    console.log(obj.pokerGroupName);
+    var pokerGroup = PokerGroups.findOne({name: obj.pokerGroupName});
+    var group_id = pokerGroup['_id'];
+    console.log('group_id: '+group_id+'.');
+    var players = Players.find({group_id: group_id}).fetch();
+    console.log(players);
+    var player_emails = _.collect(players, function (player) { return player['emails']; } ).join(',');
+    console.log(player_emails);
+
+    var yyyy_mm_dd = ''+yyyymmdd; // coerce to string
+    yyyy_mm_dd = yyyy_mm_dd.slice(0,4)+'/'+yyyy_mm_dd.slice(4,6)+'/'+yyyy_mm_dd.slice(6,8);
+    var mailOptions = {
+      from:     'john.baylor@gmail.com',
+      to:       player_emails,
+      subject:  'Poker '+yyyy_mm_dd,
+
+      text:     'yes no maybe' // One or the other
+      //html:     'yes no maybe'
+    };
+    // Let other method calls from the same client start running,
+    // without waiting for the email sending to complete.
+    //this.unblock();  // but we want to return the game, I think...
+
+    Email.send(mailOptions);
+
     return game;
   }
 });
