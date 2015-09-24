@@ -71,13 +71,15 @@ Meteor.methods({
 
     var yyyy_mm_dd = ''+yyyymmdd; // coerce to string
     yyyy_mm_dd = yyyy_mm_dd.slice(0,4)+'/'+yyyy_mm_dd.slice(4,6)+'/'+yyyy_mm_dd.slice(6,8);
+    var gameURL = Meteor.absoluteUrl('game/'+yyyymmdd);
+    var yes_no_maybe = '<ul><li><a href="'+gameURL+'#yes">YES</a></li><li><a href="'+gameURL+'#no">NO</a></li><li><a href="'+gameURL+'#maybe">maybe</a></li></ul>'
     var mailOptions = {
       from:     'john.baylor@gmail.com',
       to:       player_emails,
       subject:  'Poker '+yyyy_mm_dd,
 
-      text:     'yes no maybe' // One or the other
-      //html:     'yes no maybe'
+      //text:     'yes no maybe' // One or the other
+      html:     'Can you make it? '+yes_no_maybe
     };
     // Let other method calls from the same client start running,
     // without waiting for the email sending to complete.
