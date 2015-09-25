@@ -8,3 +8,5 @@ kadira:flow-router
 kadira:blaze-layout
 philippspo:momentum-flow-router
 email
+accounts-password
+accounts-ui
