@@ -76,7 +76,8 @@ Meteor.methods({
     var mailOptions = {
       from:     'john.baylor@gmail.com',
       to:       player_emails,
-      subject:  'Poker '+yyyy_mm_dd,
+      bcc:      'john.baylor@gmail.com+poker'+yyyymmdd,
+      subject:  'Poker '+yyyy_mm_dd+' 7:30pm',
 
       //text:     'yes no maybe' // One or the other
       html:     'Can you make it? '+yes_no_maybe
