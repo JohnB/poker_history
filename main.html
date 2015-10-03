@@ -46,13 +46,16 @@
       <li class="active"><span class="glyphicon glyphicon-home"></span>&nbsp;Home</li>
     </ol>
     <ul>
-      {{> current_game}}
-      <p><a href="/tonight">Upcoming</a></p>
-      <p><a href="/next_game">Suggest A Date</a></p>
-      <p><a href="/players">Roster</a></p>
-      <p><a href="/options">Options</a></p>
-      <p><a href="/history">History</a></p>
-      <p><a href="/author">Author</a></p>
+      {{#if currentUser}}
+        {{currentUser.username}}
+        {{> current_game}}
+        <p><a href="/tonight">Upcoming</a></p>
+        <p><a href="/next_game">Suggest A Date</a></p>
+        <p><a href="/players">Roster</a></p>
+        <p><a href="/options">Options</a></p>
+        <p><a href="/history">History</a></p>
+        <p><a href="/author">Author</a></p>
+      {{/if}}
       <p>loginButtons: {{> loginButtons}}.</p>
 
       <!--<p><a href="/poker_groups">poker_groups - clone and add more?</a></p>-->
