@@ -19,11 +19,15 @@ Meteor.startup(function () {
 });
 
 // publish players and groups
-Meteor.publish('players', function(limit) {
-  return Players.find({});
+Meteor.publish('players', function(group_id) {
+  return Players.find({group_id: group_id});
 });
 Meteor.publish('poker_groups', function(name) {
   return PokerGroups.find({name: name});
+});
+
+Meteor.publish('future_games', function() {
+  return Games.find({});
 });
 
 NonEmptyString = Match.Where(function (x) {  // http://docs.meteor.com/#/full/matchpatterns
@@ -48,7 +52,7 @@ Meteor.methods({
     check(obj.pokerGroupName, NonEmptyString);
     var yyyymmdd = parseInt(obj.yyyymmdd);
 
-    var game_hash = {yyyymmdd: yyyymmdd, poker_group_name: obj.pokerGroupName};
+    var game_hash = {yyyymmdd: yyyymmdd, poker_group_name: obj.pokerGroupName, respondents: obj.respondents};
     var game = Games.findOne(game_hash);
 
     // This code essentially creates a singleton for each date requested for a group.
@@ -72,7 +76,7 @@ Meteor.methods({
     var yyyy_mm_dd = ''+yyyymmdd; // coerce to string
     yyyy_mm_dd = yyyy_mm_dd.slice(0,4)+'/'+yyyy_mm_dd.slice(4,6)+'/'+yyyy_mm_dd.slice(6,8);
     var gameURL = Meteor.absoluteUrl('game/'+yyyymmdd);
-    var yes_no_maybe = '<ul><li><a href="'+gameURL+'#yes">YES</a></li><li><a href="'+gameURL+'#no">NO</a></li><li><a href="'+gameURL+'#maybe">maybe</a></li></ul>'
+    var yes_no_maybe = '<ul><li><a href="'+gameURL+'/?available=yes">YES</a></li><li><a href="'+gameURL+'/?available=no">NO</a></li><li><a href="'+gameURL+'/?available=maybe">maybe</a></li></ul>'
     var mailOptions = {
       from:     'john.baylor@gmail.com',
       to:       player_emails,
@@ -89,5 +93,10 @@ Meteor.methods({
     Email.send(mailOptions);
 
     return game;
+  },
+
+  list_games: function(obj) {
+    console.log('in list_games')
+    return Games.find({}).fetch();
   }
 });
