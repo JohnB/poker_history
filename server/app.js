@@ -26,8 +26,9 @@ Meteor.publish('poker_groups', function(name) {
   return PokerGroups.find({name: name});
 });
 
-Meteor.publish('future_games', function() {
-  return Games.find({});
+Meteor.publish('poker_group_games', function(poker_group_name) {
+  // Return all the ones for this poker group - let the client filter and sort
+  return Games.find({});  // TODO: filter on poker_group_name (or *better* on poker_group_id)
 });
 
 NonEmptyString = Match.Where(function (x) {  // http://docs.meteor.com/#/full/matchpatterns
